@@ -6,7 +6,7 @@ test-linux:
 		--rm \
 		-v "$(PWD):$(PWD)" \
 		-w "$(PWD)" \
-		swift:5.2 \
+		swift:5.3 \
 		bash -c 'make test-swift'
 
 test-macos:
@@ -19,11 +19,10 @@ test-ios:
 	set -o pipefail && \
 	xcodebuild test \
 		-scheme SnapshotTesting_iOS \
-		-destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.3" \
+		-destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=14.1" \
 
 test-swift:
 	swift test \
-		--enable-pubgrub-resolver \
 		--parallel
 
 test-tvos:
